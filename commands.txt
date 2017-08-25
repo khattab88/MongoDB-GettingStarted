@@ -40,6 +40,10 @@ mongo db.getMongo()
 -save document to collcetion
 mongo db.<collection name>.save(<document object>)
 
+- get documents in a collection
+mongo db.<collection name>.find()
+
+
 
 
 
