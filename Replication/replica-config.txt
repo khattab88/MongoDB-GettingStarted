@@ -3,7 +3,7 @@
 	"members": [
 		{
 			"_id": 0,
-			"host": "localhost:3000",
+			"host": "localhost:30000",
 			"priority": 10
 		},
 		{
