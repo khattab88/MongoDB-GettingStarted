@@ -52,6 +52,9 @@ mongo <script.js>
 - execute js scripts (stays in the shell after execution)
 mongo <script.js> --shell
 
+- drop database
+mongo db.dropDatabase()
+
 
 
 
