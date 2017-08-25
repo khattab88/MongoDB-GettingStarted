@@ -13,5 +13,9 @@ mongod -f "mongod.conf" --install
 - start mongod service (mongodb)
 net start mongodb
 
+- stop mongodb service
+net stop mongodb
+
+
 
 
