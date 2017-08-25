@@ -1,0 +1,6 @@
+- change data path
+mongod --dbpath "database path"
+
+- change log path
+mongod --logpath "logFile.log"
+
