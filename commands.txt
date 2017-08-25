@@ -19,5 +19,9 @@ net stop mongodb
 - exit mongo shell
 exit (or Enter CTRL + C)
 
+- show available colections (databases)
+mongo show dbs
+
+
 
 
