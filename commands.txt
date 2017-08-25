@@ -4,3 +4,6 @@ mongod --dbpath "database path"
 - change log path
 mongod --logpath "logFile.log"
 
+- configure mongo (config file)
+mongod -f "mongod.conf"
+
