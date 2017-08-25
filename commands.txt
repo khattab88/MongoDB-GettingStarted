@@ -7,3 +7,11 @@ mongod --logpath "logFile.log"
 - configure mongo (config file)
 mongod -f "mongod.conf"
 
+- install mongod as a windows service
+mongod -f "mongod.conf" --install
+
+- start mongod service (mongodb)
+net start mongod
+
+
+
