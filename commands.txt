@@ -19,7 +19,7 @@ net stop mongodb
 - exit mongo shell
 exit (or Enter CTRL + C)
 
-- show available colections (databases)
+- show available databases (databases)
 mongo show dbs
 
 
