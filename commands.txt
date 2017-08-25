@@ -22,6 +22,9 @@ exit (or Enter CTRL + C)
 - show available databases (databases)
 mongo show dbs
 
+- get current database
+db
+
 
 
 
