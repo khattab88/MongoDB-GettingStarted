@@ -46,6 +46,13 @@ mongo db.<collection name>.find()
 - enable log rotation (only applies for admin db)
 mongo localhost/admin --eval "db.runCommand({logRotate: 1})"
 
+- execute js scripts (exits mongo shell after execution)
+mongo <script.js>
+
+- execute js scripts (stays in the shell after execution)
+mongo <script.js> --shell
+
+
 
 
 
