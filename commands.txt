@@ -16,6 +16,8 @@ net start mongodb
 - stop mongodb service
 net stop mongodb
 
+- exit mongo shell
+exit (or Enter CTRL + C)
 
 
 
