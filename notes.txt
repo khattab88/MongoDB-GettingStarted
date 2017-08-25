@@ -1,0 +1,8 @@
+Replication:
+Mongo uses Replica sets to protect database from failure on single machine
+
+RC file:
+special file mongorc.js which runs before mongo shell started
+(you would place any bootstraping scripts in this file,
+ instead of running these scripts everytime you open the shell)
+ (you can use command mongo --norc to disable rc file)
