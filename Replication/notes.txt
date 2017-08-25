@@ -1,0 +1,5 @@
+Replica set:
+1- Primary DB (one and only writable instance in set)
+2- Secondary DB (one or more DBs, read-only instance)
+3- Arbitrarly DB (one or more, doessn't store data, used for replication election process )
+
