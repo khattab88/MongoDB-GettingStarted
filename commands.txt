@@ -28,6 +28,9 @@ db
 - switch/connect to a different database
 use "database name"
 
+- show available mongo commands (db, col, admin, shard, replica,...)
+help
+
 
 
 
