@@ -37,6 +37,8 @@ mongo --port <port number>
 - get current db server
 mongo db.getMongo()
 
+-save document to collcetion
+mongo db.<collection name>.save(<document object>)
 
 
 
