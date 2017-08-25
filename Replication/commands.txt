@@ -1,0 +1,5 @@
+- declare replica config object (mongo shell is a javascript console)
+var config = <paste here replica config>;
+
+- initialize replica set (should be connected to primary db)
+mongo rs.initialize(config);
