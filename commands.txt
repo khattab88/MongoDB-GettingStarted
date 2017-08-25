@@ -55,6 +55,8 @@ mongo <script.js> --shell
 - drop database
 mongo db.dropDatabase()
 
+- disable RC mode
+mongo --norc
 
 
 
