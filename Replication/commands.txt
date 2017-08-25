@@ -9,3 +9,6 @@ mongo setSlaveOk()
 
 - get help about replication commands
 rs.help()
+
+- get replica set status
+rs.status()
