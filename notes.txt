@@ -18,3 +18,10 @@ special file .mongorc.js which runs before mongo shell started
   
 - if you save a document without a document id field "_id",
   mongo will assign document id value to an ObjectId
+  
+- if you try to save two documents with the same id,
+  the later second document saved will override the first one
+  
+- you can use document insert command to preserve unique id constarint
+  (unique id for each document, no duplication)
+  
