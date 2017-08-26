@@ -6,3 +6,8 @@ special file .mongorc.js which runs before mongo shell started
 (you would place any bootstraping scripts in this file,
  instead of running these scripts everytime you open the shell)
  (you can use command mongo --norc to disable rc file)
+ 
+ BSON: (Binary-encoded serialization format)
+ MongoDB uses BSON format for data storage and network transfer.
+ 
+ 
