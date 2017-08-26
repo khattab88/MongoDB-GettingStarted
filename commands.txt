@@ -67,6 +67,8 @@ mongo ObjectId()
 - get ObjectId() timestamp
 mongo ObjectId().getTimestamp()
 
+- insert document (preserve unique id constarint)
+mongo db.<collection name>.insert(<document object>)
 
 
 
