@@ -82,4 +82,13 @@ db.<col name>.update(query, update, options)
 - multi documents update (empty query means any document applies)
 db.<col name>.update({}, update, {multi: true})
 
+- findAndModify command
+db.foo.findAndModify({
+	query: <document>,
+	update: <document>,
+	upsert: boolean,
+	remove: boolean,
+	sort: <document>,
+	fields: <document>
+})
 
