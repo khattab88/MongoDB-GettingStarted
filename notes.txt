@@ -25,3 +25,5 @@ special file .mongorc.js which runs before mongo shell started
 - you can use document insert command to preserve unique id constarint
   (unique id for each document, no duplication)
   
+- updates on mongo document are atomic,
+  means that two concurrent updates are executed one after the other
