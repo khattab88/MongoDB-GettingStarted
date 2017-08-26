@@ -97,4 +97,7 @@ db.<col name>.update(query, update, options)
 - addToSet operator, push item to array field (no duplication)
 {$addToSet: {"array field name": item}}
 
+- pull operator (remove all instances from an array field)
+{$pull: {"array field": item}}
+
 
