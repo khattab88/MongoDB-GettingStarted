@@ -87,7 +87,8 @@ db.foo.findAndModify({
 	query: <document>, 
 	update: <document>,
 	upsert: boolean,
-	remove: boolean, if 
+	remove: boolean,
+	new: boolean,
 	sort: <document>,
 	fields: <document>
 })
