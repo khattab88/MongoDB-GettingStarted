@@ -11,4 +11,7 @@ special file .mongorc.js which runs before mongo shell started
  MongoDB uses BSON format for data storage and network transfer.
  
 - Every document should have "_id" field.
-- Max document size = 16 MB. 
+- Max document size = 16 MB.
+
+- you can use any data type for "_id" field (numeric, string, date, object,....)
+  except for array datatype
