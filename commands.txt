@@ -70,6 +70,8 @@ mongo ObjectId().getTimestamp()
 - insert document (preserve unique id constarint)
 mongo db.<collection name>.insert(<document object>)
 
+- pretty js object (returned by mongo)
+<js object>.pretty()
 
 
 
