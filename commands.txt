@@ -76,6 +76,9 @@ mongo db.<collection name>.insert(<document object>)
 - find document (given field value)
 mongo db.<collection name>.findOne(<attr: value>)
 
+- update command
+db.<col name>.update(query, update, options)
+
 
 
 
