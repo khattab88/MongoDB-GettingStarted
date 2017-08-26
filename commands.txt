@@ -80,7 +80,7 @@ mongo db.<collection name>.findOne(<attr: value>)
 db.<col name>.update(query, update, options)
 
 - increment command (x is increment value)
-{$inc: {value: x}}
+{$inc: {field: x}}
 
 
 
