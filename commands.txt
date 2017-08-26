@@ -58,6 +58,10 @@ mongo db.dropDatabase()
 - disable RC mode
 mongo --norc
 
+- show available collections in a db
+mongo show collections
+
+
 
 
 
