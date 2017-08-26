@@ -88,4 +88,7 @@ db.<col name>.update(query, update, options)
 - unset field operator (remove field from document)
 {$unset: {field: arbitraty Value}}
 
+- rename field operator
+{$rename: {"old name"": "new name"}}
+
 
