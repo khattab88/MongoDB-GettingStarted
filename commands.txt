@@ -64,6 +64,8 @@ mongo show collections
 - create an ObjectId
 mongo ObjectId()
 
+- get ObjectId() timestamp
+mongo ObjectId().getTimestamp()
 
 
 
