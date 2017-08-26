@@ -79,25 +79,4 @@ mongo db.<collection name>.findOne(<attr: value>)
 - update command
 db.<col name>.update(query, update, options)
 
-- increment operator (x is increment value)
-{$inc: {field: x}}
-
-- set field operator (add new field to document)
-{$set: {field: value}}
-
-- unset field operator (remove field from document)
-{$unset: {field: arbitraty Value}}
-
-- rename field operator
-{$rename: {"old name"": "new name"}}
-
-- push item to array field operator (allow duplicate items in array)
-{$push: {"array field name": item}}
-
-- addToSet operator, push item to array field (no duplication)
-{$addToSet: {"array field name": item}}
-
-- pull operator (remove all instances from an array field)
-{$pull: {"array field": item}}
-
 
