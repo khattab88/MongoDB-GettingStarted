@@ -61,6 +61,10 @@ mongo --norc
 - show available collections in a db
 mongo show collections
 
+- create an ObjectId
+mongo ObjectId()
+
+
 
 
 
