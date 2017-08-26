@@ -18,3 +18,9 @@
 
 - pull operator (remove all instances from an array field)
 {$pull: {"array field": item}}
+
+- pop operator (remove last item in array field)
+db.foo.update({_id: 1}, {$pop: {"array field": 1}})
+
+- pop operator (remove fisrt item in array field)
+db.foo.update({_id: 1}, {$pop: {"array field": -1}})
