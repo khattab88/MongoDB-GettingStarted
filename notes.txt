@@ -15,3 +15,6 @@ special file .mongorc.js which runs before mongo shell started
 
 - you can use any data type for "_id" field (numeric, string, date, object,....)
   except for array datatype
+  
+- if you save a document without a document id field "_id",
+  mongo will assign document id value to an ObjectId
