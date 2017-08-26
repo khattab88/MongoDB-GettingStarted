@@ -82,5 +82,9 @@ db.<col name>.update(query, update, options)
 - increment operator (x is increment value)
 {$inc: {field: x}}
 
+- set field operator (add new field to document)
+{$set: {field: value}}
+
+
 
 
