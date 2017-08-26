@@ -85,6 +85,7 @@ db.<col name>.update(query, update, options)
 - set field operator (add new field to document)
 {$set: {field: value}}
 
-
+- unset field operator (remove field from document)
+{$unset: {field: arbitraty Value}}
 
 
