@@ -79,4 +79,7 @@ mongo db.<collection name>.findOne(<attr: value>)
 - update command
 db.<col name>.update(query, update, options)
 
+- multi documents update (empty query means any document applies)
+db.<col name>.update({}, update, {multi: true})
+
 
