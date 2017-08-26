@@ -94,5 +94,7 @@ db.<col name>.update(query, update, options)
 - push item to array field operator (allow duplicate items in array)
 {$push: {"array field name": item}}
 
+- addToSet operator, push item to array field (no duplication)
+{$addToSet: {"array field name": item}}
 
 
