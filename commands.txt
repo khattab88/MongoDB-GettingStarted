@@ -79,6 +79,8 @@ mongo db.<collection name>.findOne(<attr: value>)
 - update command
 db.<col name>.update(query, update, options)
 
+- increment command (x is increment value)
+{$inc: {value: x}}
 
 
 
