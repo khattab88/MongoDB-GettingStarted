@@ -73,6 +73,8 @@ mongo db.<collection name>.insert(<document object>)
 - pretty js object (returned by mongo)
 <js object>.pretty()
 
+- find document (given field value)
+mongo db.<collection name>.findOne(<attr: value>)
 
 
 
