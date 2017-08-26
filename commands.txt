@@ -91,4 +91,8 @@ db.<col name>.update(query, update, options)
 - rename field operator
 {$rename: {"old name"": "new name"}}
 
+- push item to array field operator (allow duplicate items in array)
+{$push: {"array field name": item}}
+
+
 
