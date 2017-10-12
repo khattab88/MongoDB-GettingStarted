@@ -8,3 +8,9 @@ sort()
 limit()
 skip()
 explain()
+
+- create index
+db.foo.ensureIndex({fieldName: 1})
+
+- drop index
+db.foo.dropIndex("indexName")
