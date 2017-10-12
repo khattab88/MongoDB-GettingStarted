@@ -1,0 +1,2 @@
+- find documents
+db.<col>.find(query, projection)
