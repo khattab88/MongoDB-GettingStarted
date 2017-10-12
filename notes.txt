@@ -27,3 +27,7 @@ special file .mongorc.js which runs before mongo shell started
   
 - updates on mongo document are atomic,
   means that two concurrent updates are executed one after the other
+
+- set default editor for complex expressions (or batches)
+1- cmd set EDITOR "editor path" (ex: notepad++)
+2- cmd edit "expression to be opened in editor) 
