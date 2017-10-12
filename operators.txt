@@ -33,8 +33,10 @@ db.foo.find( { _id: {$gte: 3} } )
 db.foo.find( {_id: {$lt: 3}} )
 db.foo.find( {_id: {$lte: 3}} )
 
-- range operator
+- gt/lt operator together (range)
 db.foo.find({ _id: {$gt:1, $lt:3} })
 
 - not operator
 db.foo.find({ _id: { $not: {$gte: 3} } })
+
+-
