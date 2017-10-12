@@ -45,3 +45,7 @@ db.users.find( { adult: { $all:[true] }})
 - range opeartor
 db.users.find({ _id: {$in:[1,2]} })
 db.users.find({ _id: {$nin:[1,2]} })
+
+- exists operator
+db.users.find( { name: {$exists: true} } )
+db.users.find( { name: {$exists: false} } )
