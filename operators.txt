@@ -39,6 +39,9 @@ db.foo.find({ _id: {$gt:1, $lt:3} })
 - not operator
 db.foo.find({ _id: { $not: {$gte: 3} } })
 
+- all operator
+db.users.find( { adult: { $all:[true] }})
+
 - range opeartor
 db.users.find({ _id: {$in:[1,2]} })
 db.users.find({ _id: {$nin:[1,2]} })
