@@ -2,7 +2,7 @@
 var config = <paste here replica config>;
 
 - initialize replica set (should be connected to primary db)
-mongo rs.initialize(config);
+mongo rs.initiate(config);
 
 - allow reads on secondary db (must be connected to secondary db)
 mongo setSlaveOk()
