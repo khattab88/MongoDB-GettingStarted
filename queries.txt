@@ -1,3 +1,5 @@
 - find documents
 db.<col>.find(query, projection)
 
+- find single document
+db.<col>.findOne()
