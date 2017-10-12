@@ -24,3 +24,9 @@ db.foo.update({_id: 1}, {$pop: {"array field": 1}})
 
 - pop operator (remove fisrt item in array field)
 db.foo.update({_id: 1}, {$pop: {"array field": -1}})
+
+- greater than operator
+db.foo.find( { _id: {$gt: 3} } )
+
+-less than operator
+db.foo.find( {_id: {$lt: 3}} )
