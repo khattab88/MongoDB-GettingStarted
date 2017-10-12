@@ -1,0 +1,10 @@
+- mongo selections (find()) returns a cursor to caller
+
+- cursor has the following:
+size()
+hasNext()
+forEach(function(d){})
+sort()
+limit()
+skip()
+explain()
