@@ -16,10 +16,17 @@ namespace Client
 
             var client = new MongoClient("mongodb://localhost:27017");
             var db = client.GetDatabase("test");
-            var users = db.GetCollection<BsonDocument>("users");
+            var collection = db.GetCollection<BsonDocument>("users");
 
-            var usersCount = users.Count(new BsonDocument());
-            Console.WriteLine(usersCount);
+            //var document = new BsonDocument();
+            //document.Add(new BsonElement("name", "ahmed"));
+            //collection.InsertOne(document);
+
+            var document = collection.Find(new BsonDocument()).FirstOrDefault();
+            Console.WriteLine(document);
+
+            //var count = collection.Count(new BsonDocument());
+            //Console.WriteLine(count);
         }
     }
 }
