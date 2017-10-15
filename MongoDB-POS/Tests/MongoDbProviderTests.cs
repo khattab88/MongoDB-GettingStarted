@@ -1,30 +1,59 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Providers;
+using MongoDB.Driver;
+using Tests.Mocks;
 
 namespace Tests
 {
     [TestClass]
-    public class MongoHandlerTests
+    public class MongoDbProviderTests
     {
+        // SUT
+        IDbProvider provider;
+
+        // dependencies
+        IMongoClient mockMongo;
+        string host;
+        int port;
+        string connStr;
+
+        [TestInitialize]
+        public void TestInit()
+        {
+            host = "host";
+            port = 11111;
+            connStr = string.Format("mongodb://{0}:{1}", host, port);
+
+            mockMongo = new MockMongoClient();
+
+            provider = new MongoDbProvider(connStr, mockMongo);   
+        }
+
+        [Ignore]
         [TestMethod]
         public void createClient_ReturnsValidMongoClient()
         {
-            // arrange
-            MongoDBProvider provider = new MongoDBProvider();
-            string connStr = "connection string";
-
             // act
-            var client = provider.createClient(connStr);
+            var client = provider.CreateClient(connStr);
 
             // assert
-            Assert.AreEqual(connStr, client.ConnectionString);
-            Assert.IsTrue(client.IsConnected);
+            Assert.AreEqual(client.Settings.Server.Host, host);
+            Assert.AreEqual(client.Settings.Server.Port, port);
         }
 
         [TestMethod]
         public void GetDatabase_ReturnsDatabase()
         {
-            throw new NotImplementedException();
+            // arrange
+            var dbName = "db name";
+
+            // act 
+            var db = provider.GetDatabase(dbName);
+
+            // assert
+            Assert.IsNotNull(db);
+            Assert.AreEqual(db.DatabaseNamespace.DatabaseName, dbName);
         }
 
         [TestMethod]
