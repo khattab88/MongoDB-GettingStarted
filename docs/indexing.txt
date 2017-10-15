@@ -1,0 +1,8 @@
+- create index
+db.foo.ensureIndex({fieldName: 1})
+
+- get all indexes on collection
+db.foo.getIndexes()
+
+- drop index
+db.foo.dropIndex("indexName")
