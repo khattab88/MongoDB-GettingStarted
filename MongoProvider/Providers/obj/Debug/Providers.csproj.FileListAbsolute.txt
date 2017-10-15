@@ -1,0 +1,12 @@
+D:\Projects\MongoDB-GettingStarted\MongoDB-POS\Providers\bin\Debug\Providers.dll
+D:\Projects\MongoDB-GettingStarted\MongoDB-POS\Providers\bin\Debug\Providers.pdb
+D:\Projects\MongoDB-GettingStarted\MongoDB-POS\Providers\obj\Debug\Providers.csprojResolveAssemblyReference.cache
+D:\Projects\MongoDB-GettingStarted\MongoDB-POS\Providers\obj\Debug\Providers.dll
+D:\Projects\MongoDB-GettingStarted\MongoDB-POS\Providers\obj\Debug\Providers.pdb
+D:\Projects\MongoDB-GettingStarted\MongoDB-POS\Providers\bin\Debug\MongoDB.Bson.dll
+D:\Projects\MongoDB-GettingStarted\MongoDB-POS\Providers\bin\Debug\MongoDB.Driver.Core.dll
+D:\Projects\MongoDB-GettingStarted\MongoDB-POS\Providers\bin\Debug\MongoDB.Driver.dll
+D:\Projects\MongoDB-GettingStarted\MongoDB-POS\Providers\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Projects\MongoDB-GettingStarted\MongoDB-POS\Providers\bin\Debug\MongoDB.Bson.xml
+D:\Projects\MongoDB-GettingStarted\MongoDB-POS\Providers\bin\Debug\MongoDB.Driver.xml
+D:\Projects\MongoDB-GettingStarted\MongoDB-POS\Providers\bin\Debug\MongoDB.Driver.Core.xml
