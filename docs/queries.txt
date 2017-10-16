@@ -59,3 +59,9 @@ api: db.products.skip(1000).limit(50)
 
 Aggregation:
 
+- aggregate()
+ex: return sum of order totals per customer (ordered descending by orders total)
+api: db.orders.aggregate([
+    { $group: { _id:"$customerId", total: {$sum: "$amount"} } },
+    { $sort: { total: -1 } }
+])
