@@ -1,0 +1,22 @@
+{
+    "_id": 1,
+    "date": "25-5-2017",
+    "total": 55,
+    "customer":{
+        "_id": 1,
+        "name": "ali",
+        "phone": "01245454"
+    },
+    "orderItems":[
+        {
+            "_id": 1,
+            "quantity": 3,
+            "productId": 1
+        },
+        {
+            "_id": 2,
+            "quantity": 5,
+            "productId": 2
+        }
+    ]
+}
