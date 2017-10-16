@@ -31,4 +31,7 @@ api: db.products.find( { productName: {$not: "iphone"} } )
 ex: select product where name starts with "Apple" or price less than 700
 api: db.products.find( { $or: [{productName: "/^Apple/"}, {price: {$lt:700}}] } )
 
-
+- where operator (custom where function)
+ex: select document where productId = 5
+api: db.products.find({ $where: "function(){ return this.productId === 5; }" })
+or: db.products.find({ $where: "this.productId === 5" })
