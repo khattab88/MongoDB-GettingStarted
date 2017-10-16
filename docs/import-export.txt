@@ -1,0 +1,5 @@
+- export collection to json file
+mongoexport --db <dbName> --collection <collectionName> --out <fileName>.json
+
+- import collection from json file
+mongoimport --db <dbName> --collection <collectionName> --drop --file <fileName>.json
