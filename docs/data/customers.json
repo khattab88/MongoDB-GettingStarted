@@ -1,0 +1,12 @@
+[
+    {
+        "customerId": 1,
+        "customerName": "ali",
+        "phone": "0112356454"
+    },
+    {
+        "customerId": 2,
+        "customerName": "omar",
+        "phone": "01457878454"
+    }
+]

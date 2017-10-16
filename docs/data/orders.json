@@ -1,0 +1,14 @@
+[
+    {
+        "orderId": 1,
+        "date": "25-5-2017",
+        "total": 55,
+        "customerId": 1
+    },
+    {
+        "orderId": 2,
+        "date": "25-3-2017",
+        "total": 75,
+        "customerId": 1
+    }
+]

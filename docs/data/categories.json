@@ -1,0 +1,10 @@
+[
+    {
+        "categoryId": 1,
+        "categoryName": "Mobiles"
+    },
+    {
+        "categoryId": 2,
+        "categoryName": "Labtops"
+    }
+]
