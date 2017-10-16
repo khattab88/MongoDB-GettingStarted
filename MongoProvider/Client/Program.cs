@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using Microsoft.Practices.Unity;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using Providers;
 using System;
@@ -11,12 +12,14 @@ namespace Client
 {
     class Program
     {
+       
         static void Main(string[] args)
         {
             Console.WriteLine("Hello MongoDB !");
 
             var connStr = "mongodb://localhost:27017";
             var mongo = new MongoClient();
+            //var mongo = container.Resolve<IMongoClient>("Mongo");
             IDbProvider provider = new MongoDbProvider(connStr, mongo);
 
             // get client
