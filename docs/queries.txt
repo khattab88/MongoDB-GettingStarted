@@ -35,3 +35,27 @@ api: db.products.find( { $or: [{productName: "/^Apple/"}, {price: {$lt:700}}] } 
 ex: select document where productId = 5
 api: db.products.find({ $where: "function(){ return this.productId === 5; }" })
 or: db.products.find({ $where: "this.productId === 5" })
+
+//----------------------------------------------------------
+
+Options:
+
+- Projections
+ex: select productName from products collection
+api: db.products.find({}, { productName:1 })
+
+- Sorting
+ex: sort products ascending
+ex: db.products.find().sort({ price: 1 })
+
+ex: sort products descending
+ex: db.products.find().sort({ price: -1 })
+
+- Paging (skip() / limit())
+ex: skip first 1000 record and take the next 50
+api: db.products.skip(1000).limit(50)
+
+//----------------------------------------------------
+
+Aggregation:
+
