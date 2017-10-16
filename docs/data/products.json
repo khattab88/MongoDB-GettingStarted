@@ -7,7 +7,8 @@
         "description": "Apple abandoned scaling the original 320 x 480 resolution by various factors and jumped to an industry standard of 1080p. This means that for the first time the iPhone can show FullHD video at 1:1 and also represents the first jump in pixel density since the iPhone 4 (even the smaller iPhone 6 is still at 326ppi). The screen is the defining feature of the iPhone 6 Plus but another important update is the addition of Optical Image Stabilization to the camera, which has otherwise only seen iterative updates for the last four years.",
         "price": 800.00,
         "starRating": 4.8,
-        "imageUrl": "http://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-6-plus-1.jpg"
+        "imageUrl": "http://cdn2.gsmarena.com/vv/pics/apple/apple-iphone-6-plus-1.jpg",
+        "categoryId": 1
     },
     {
         "productId": 2,
@@ -17,7 +18,8 @@
         "description": "Sony's shorter update cycle sees the Xperia Z3 clock in just 6 months after its predecessor. At first glance, the next flagship isn't too generous with the upgrades, but anyone who has handled the Xperia Z2 will see most of its key issues addressed. Curved at the edges for a fresh new look, the handset is supposed to offer improved ergonomics. Add the slimmer bezels, the loss of weight and the slimmer profile, and the Sony Xperia Z3 is already looking strong in the only area where its predecessor was open to criticism.",
         "price": 600.00,
         "starRating": 4.2,
-        "imageUrl": "http://cdn2.gsmarena.com/vv/pics/sony/sony-xperia-z3-01.jpg"
+        "imageUrl": "http://cdn2.gsmarena.com/vv/pics/sony/sony-xperia-z3-01.jpg",
+        "categoryId": 1
     },
     {
         "productId": 5,
@@ -27,6 +29,7 @@
         "description": "For the first time in a couple of generations, Samsung is relying solely on its own Exynos platform. This seemed like of nick-of-time decision amid rumors of cooling issues and thermal throttling plaguing the Snapdragon 810 chipset but the fact is the Exynos 7420 (7 Octa) is simply better. The only reason Qualcomm were in the story at all was the uncertainty whether Samsung would be ready for mass production with its own chipset. Built on a 14nm process, Samsung's chipset allows similar or higher clockspeeds (hence performance) with less power consumption, which by the way means it's easier to cool as well. In the end, the Galaxy S6 is powered by a beastly octa-core processor with four Cortex-A57 cores ticking at 2.1GHz and four Cortex-A53 'efficiency' cores at 1.5GHz. An octa-core Mali-T760 GPU and 3GB of RAM complete the tally.",
         "price": 550.00,
         "starRating": 4.3,
-        "imageUrl": "http://cdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s6-1.jpg"
+        "imageUrl": "http://cdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s6-1.jpg",
+        "categoryId": 1
     }
 ]
