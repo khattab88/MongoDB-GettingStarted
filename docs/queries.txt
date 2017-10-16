@@ -65,3 +65,11 @@ api: db.orders.aggregate([
     { $group: { _id:"$customerId", total: {$sum: "$amount"} } },
     { $sort: { total: -1 } }
 ])
+
+- map() / reduce()
+
+- min() / max() (both are not defined in mongo api)
+ex: get max price in products collection
+api: db.products.find({}, { _id:0, price:1 })
+                .sort({ price: -1 })
+                .limit(1)
