@@ -19,5 +19,11 @@ a) Fields Operators
     4. ($inc) increment field value by amount
     5. ($currentDate) set field value to current date
 
+ex: inceremnt product price with id = 10 by 100
+api: db.products.update({ productId:10 }, { $inc: { price:100 } })
+
+ex: set order date with id = 5 to current date
+api: db.orders.update( { orderId:5 }, { $currentDate: {orderDate:true} } )
+
 
 ---------------------------------------------
