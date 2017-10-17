@@ -1,6 +1,14 @@
 Functions:
-- update({selector}, {update operator}, {options})
-- findAndModify({options})
+a) update
+    - update({selector}, {update operator}, {options})
+    - findAndModify({options})
+b) insert
+    - insertOne()
+    - insertMany()
+c) delete
+    - deleteOne()
+    - deleteMany()
+
 
 ex: update product document with id = 10, set product name = "Sony"
 - db.products.update({ productId:10 }, { $set: { productName: "Sony" } })
@@ -25,5 +33,16 @@ api: db.products.update({ productId:10 }, { $inc: { price:100 } })
 ex: set order date with id = 5 to current date
 api: db.orders.update( { orderId:5 }, { $currentDate: {orderDate:true} } )
 
+b) Array Operators
+    1. ($push) add element to array field
+    2. ($addToSet) add unique element to array field (no duplication)
+    3. ($pop) remove first element from array
+    4. ($pull) remove all array elements with specific query
+    5. ($each) apply operation (pop, push,..) to each element in array
+    6. ($position) used with push operator (insert in specific position)
+    7. ($slice)
+    8. ($sort)
 
----------------------------------------------
+ex: add tag value "2017" to products tags array field (update multiple documnents)
+api: db.products.upadte({}, { $push:{ tags:"2017" } }, { multi:true })
+
