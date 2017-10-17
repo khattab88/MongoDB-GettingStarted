@@ -1,5 +1,23 @@
-Updating:
+Functions:
+- update({selector}, {update operator}, {options})
+- findAndModify({options})
 
+ex: update product document with id = 10, set product name = "Sony"
+- db.products.update({ productId:10 }, { $set: { productName: "Sony" } })
+- db.products.findAndModify({ 
+    query:{ productId:10 },
+    update:{ $set: { productName: "Sony" } }
+ })
+
+
+Operators:
+
+a) Fields Operators
+    1. ($set) set field value
+    2. ($unset) remove field
+    3. ($rename) rename field
+    4. ($inc) increment field value by amount
+    5. ($currentDate) set field value to current date
 
 
 ---------------------------------------------
