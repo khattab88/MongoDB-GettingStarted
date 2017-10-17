@@ -1,0 +1,20 @@
+- Replication: distribute live database server across multiple machines
+
+- Replication in Mongo
+    a) Master-Slave
+    b) Replica Set (recommended, automaic failover strategy)
+
+- one master server (for writes)
+  and many secondary servers (for reads)
+
+- in case of failure, on of secondary elected to be primary server
+  (when failed server comes be live again it will be secondary)
+
+- to ensure data durability mongo uses WiredTiger (Storage Engine),
+  which writes logs into a journal with checkpoints 
+  (used to restore database to last valid state)
+
+- how replication works:
+    a) oplog (enable replication, sync with secondary servers)
+    b) heartbeat (monitor health and trigger failover)
+
