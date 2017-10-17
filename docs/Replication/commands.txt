@@ -12,3 +12,7 @@ rs.help()
 
 - get replica set status
 rs.status()
+
+- get replica set info
+db.getReplicationInfo()
+
