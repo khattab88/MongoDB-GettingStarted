@@ -1,0 +1,29 @@
+- average time for queries is 100 ms
+
+- explain query excution
+ex: find excution plan of selecting all product documents (very detailed)
+api: db.products.find().explain(true)
+or:  db.products.find().explain({ verbosity:"allPlansExecution" })
+
+- enable profiling
+ex: enable profiling on test database (level 2 is the most verbose)
+api: use test
+     db.setProfilingLevel(2)
+
+- disable profiling
+ex: disable profiling on test database (level 0 means no profiling)
+api: use test
+     db.setProfilingLevel(0)
+
+- profiles are stored in capped collection called db.system.profile
+ex: find profiles of test database
+api: use test
+     db.system.profile.find()
+
+
+
+
+
+
+
+
