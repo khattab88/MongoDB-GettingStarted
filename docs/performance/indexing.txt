@@ -1,8 +1,37 @@
+Indexes: 
+a) single-key
+b) compound-key
+
+- only use one index per query (single or compound)
+
+- Index types:
+    1. unique 
+    2. sparse (only fields with value will be indexed)
+    3. multi-key
+
+
+
+
+------------------------------------------------
+
+Functions:
+
 - create index
-db.foo.ensureIndex({fieldName: 1})
+db.foo.ensureIndex({key}, {options})
+ex: craeate index on products table on name field
+api: db.products.ensureIndex(
+    { productName:1 },
+    { unique:true, sparse:true }
+)
+
+ex: create multi-key (compound) index on name and price
+api: db.products.ensureIndex({ productName:1, price:1 })
 
 - get all indexes on collection
 db.foo.getIndexes()
 
 - drop index
 db.foo.dropIndex("indexName")
+
+- get index information
+db.foo.getIndexSpecs()
