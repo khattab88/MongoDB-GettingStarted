@@ -1,0 +1,55 @@
+Admin:
+
+- change data path
+mongod --dbpath "database path"
+
+- change log path
+mongod --logpath "logFile.log"
+
+- configure mongo (config file)
+mongod -f "mongod.conf"
+
+- install mongod as a windows service
+mongod -f "mongod.conf" --install
+
+- start mongod service (mongodb)
+net start mongodb
+
+- stop mongodb service
+net stop mongodb
+
+- exit mongo shell
+exit (or Enter CTRL + C)
+
+- show available databases (databases)
+mongo show dbs
+
+- get current database
+mongo db
+
+- switch/connect to a different database
+mongo use "database name"
+
+- show available mongo commands (db, col, admin, shard, replica,...)
+mongo help
+
+- connect to mongo server (other than default port 27017)
+mongo --port <port number>
+
+- get current db server
+mongo db.getMongo()
+
+- disable RC mode
+mongo --norc
+
+- enable log rotation (only applies for admin db)
+mongo localhost/admin --eval "db.runCommand({logRotate: 1})"
+or: use admin
+	db.runCommand( { logRotate : 1 } )
+
+- execute js scripts (exits mongo shell after execution)
+mongo <script.js>
+
+- execute js scripts (stays in the shell after execution)
+mongo <script.js> --shell
+
