@@ -2,14 +2,16 @@
 
 2- NoSQL Distilled to an hour by Martin Fowler (https://www.youtube.com/watch?v=ASiU89Gl0F0)
 
-3- Introduction to MongoDB (https://www.pluralsight.com/courses/mongodb-introduction)
+3- Modeling Data for NoSQL Document Databases (https://www.youtube.com/watch?v=-o_VGpJP-Q0)
 
-4- MongoDB In Action (https://www.manning.com/books/mongodb-in-action)
+4- Introduction to MongoDB (https://www.pluralsight.com/courses/mongodb-introduction)
 
-5- Mongo Reference Cards (https://drive.google.com/open?id=0B_xFYS7hO4giQjJudlhJOGI2VVk)
+5- MongoDB In Action (https://www.manning.com/books/mongodb-in-action)
 
-6- Mongo Architecture Guide (https://drive.google.com/open?id=0B_xFYS7hO4giN3h1TkxhNl85U2c)
+6- Mongo Reference Cards (https://drive.google.com/open?id=0B_xFYS7hO4giQjJudlhJOGI2VVk)
 
-7- Using MongoDB with ASP.NET MVC (https://www.pluralsight.com/courses/using-mongodb-aspdotnet-mvc)
+7- Mongo Architecture Guide (https://drive.google.com/open?id=0B_xFYS7hO4giN3h1TkxhNl85U2c)
 
-8- Using the MongoDB C# v2 Driver (https://www.pluralsight.com/courses/mongo-db-csharp-v2-driver)
+8- Using MongoDB with ASP.NET MVC (https://www.pluralsight.com/courses/using-mongodb-aspdotnet-mvc)
+
+9- Using the MongoDB C# v2 Driver (https://www.pluralsight.com/courses/mongo-db-csharp-v2-driver)
