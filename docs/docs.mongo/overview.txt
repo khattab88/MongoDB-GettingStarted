@@ -1,0 +1,87 @@
+Tutorials:
+
+- install MongoDB on windows: (https://docs.mongodb.com/tutorials/install-mongodb-on-windows/)
+    a) install mongo community edition on windows
+    b) setup mongo server (mongod)
+    c) configure mongo (dbpath, logpath,...)
+    d) install mongod as windows service
+
+------------------------------------------------------------------------
+
+Components:
+
+1- server => mongod.exe: 
+    (https://docs.mongodb.com/manual/reference/program/mongod/)
+    
+2- client shell => mongo.exe: 
+    (https://docs.mongodb.com/manual/reference/program/mongo/)
+
+3- Client Drivers:
+    a) Node.js (https://mongodb.github.io/node-mongodb-native/)
+    b) .NET (https://docs.mongodb.com/ecosystem/drivers/csharp/)
+
+3- GUI Tools:
+    a) Compass: (https://docs.mongodb.com/compass/current/)
+        explore, run queries, monitor mongo database.
+    b) Ops Manager: (https://docs.opsmanager.mongodb.com/current/)
+        mongo administration (monitor, automation, backups)
+
+4- Cloud: 
+    a) Atlas: (https://docs.atlas.mongodb.com/)
+        database as a service
+    b) Stitch: (https://docs.mongodb.com/stitch/)
+        backend as a service
+    c) Cloud Manager: (https://docs.cloudmanager.mongodb.com/)
+        manage, monitor, backup mongodb cloud infrastructure
+
+5- Import:
+    a) mongoimport: (https://docs.mongodb.com/manual/reference/program/mongoimport/)
+        load data from json to mongo cluster
+    b) mongorestore: (https://docs.mongodb.com/manual/reference/program/mongorestore/)
+        load data from binary database dump file
+    c) mongomirror : (https://docs.atlas.mongodb.com/import/mongomirror/)
+        migrate data from one replica set to another
+
+4- Export:
+    a) mongoexport: (https://docs.mongodb.com/manual/reference/program/mongoexport/)
+        export mongo database to json file
+    b) mongodump: (https://docs.mongodb.com/manual/reference/program/mongodump/)
+        create binary export of mongo database
+
+5- Sharding => mongos.exe
+    (https://docs.mongodb.com/manual/reference/program/mongos/)
+    Routing service for mongo shards
+
+6- Status => mongostats.exe
+    (https://docs.mongodb.com/manual/reference/program/mongostat/)
+    utility for mongod / mongos status
+
+--------------------------------------------------------------------
+
+Misc:
+
+- Security: (https://docs.mongodb.com/manual/security/)
+    a) Users
+    b) Authentication
+    c) Authorizatin
+
+- Installing & Upgrading:
+    a) Install Entrprise edition (https://docs.mongodb.com/manual/administration/install-enterprise/)
+    b) Upgrade (https://docs.mongodb.com/manual/tutorial/upgrade-revision/)
+
+- Deployment:
+    a) High availability / Disaater recovery (Replication)
+        (https://docs.mongodb.com/manual/replication/)
+    b) Horizontal scalability (Sharding)
+        (https://docs.mongodb.com/manual/sharding/)
+
+Monitoring: 
+    a) Ops Manager (https://docs.opsmanager.mongodb.com/current/)
+        On-Premise manage, monitor, backup of mongo infrastructure 
+    b) Cloud Manager (https://docs.cloudmanager.mongodb.com/)
+        Cloud manage, monitor, backup of mongo infrastructure
+
+Schema:
+    a) Data Model (https://docs.mongodb.com/manual/core/data-modeling-introduction/)
+    b) Schema Design (https://docs.mongodb.com/manual/core/data-model-design/)
+    c) Schema Validation (https://docs.mongodb.com/manual/core/document-validation/)
