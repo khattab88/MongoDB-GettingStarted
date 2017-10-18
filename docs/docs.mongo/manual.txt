@@ -1,0 +1,35 @@
+1- Getting Started:
+
+    1.1- mongo shell (https://docs.mongodb.com/getting-started/shell/)
+    1.2- C# Driver (https://docs.mongodb.com/getting-started/csharp/)
+    1.3- Node.js Driver (http://mongodb.github.io/node-mongodb-native/2.2/quick-start/)
+
+-----------------------------------------------------------
+
+2- Topics:
+
+    2.1- Introduction
+        2.1.1- Introduction to MongoDB (https://docs.mongodb.com/manual/introduction/)
+        2.1.2- Installation (https://docs.mongodb.com/manual/installation/)
+        2.1.3- Databases and Collections (https://docs.mongodb.com/manual/core/databases-and-collections/)
+        2.1.4- Documents (https://docs.mongodb.com/manual/core/document/)
+
+    2.2- Development
+        2.2.1- CRUD Operations (https://docs.mongodb.com/manual/crud/)
+        2.2.2- Aggregation (https://docs.mongodb.com/manual/aggregation/)
+        2.2.3- SQL to MongoDB (https://docs.mongodb.com/manual/reference/sql-comparison/)
+        2.2.4- Indexes (https://docs.mongodb.com/manual/indexes/)
+
+    2.3- Administration
+        2.3.1- Production (https://docs.mongodb.com/manual/administration/production-notes/)
+        2.3.2- Replication (https://docs.mongodb.com/manual/replication/)
+        2.3.3- Sharding (https://docs.mongodb.com/manual/sharding/)
+        2.3.4- Security (https://docs.mongodb.com/manual/security/)
+
+    2.4- References
+        2.4.1- Shell methods (https://docs.mongodb.com/manual/reference/method/)
+        2.4.2- Query operators (https://docs.mongodb.com/manual/reference/operator/)
+        2.4.3- reference (https://docs.mongodb.com/manual/reference/)
+        2.4.4- Glossary (https://docs.mongodb.com/manual/reference/glossary/)
+
+        
