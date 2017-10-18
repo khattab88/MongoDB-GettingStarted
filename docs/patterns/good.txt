@@ -1,0 +1,16 @@
+1. Embed vs. Reference:
+    Embed child documents into their parent may offer performane gain,
+    while referencing (creating child documents in a separate collection with
+     reference of their parent) would offer more flexilbility
+
+2. Many-to-Many Relations
+
+3. Trees (Materialized Path Pattern)
+
+4. Worker Queues
+
+5. Dynamic Attributes
+
+    model dynamic attributes (which differs between documents) into sub-document
+
+6. Transactions (atomic document updates)

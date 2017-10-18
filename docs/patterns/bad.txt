@@ -1,0 +1,5 @@
+1. careless Indexing
+
+2. Large, deeply nested documents
+
+3. Unshardable collections (for very large collcetions)
