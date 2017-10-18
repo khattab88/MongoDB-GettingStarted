@@ -1,13 +1,15 @@
 1- NoSQL Distilled (https://www.amazon.com/NoSQL-Distilled-Emerging-Polyglot-Persistence/dp/0321826620)
 
-2- Introduction to MongoDB (https://www.pluralsight.com/courses/mongodb-introduction)
+2- NoSQL Distilled to an hour by Martin Fowler (https://www.youtube.com/watch?v=ASiU89Gl0F0)
 
-3- MongoDB In Action (https://www.manning.com/books/mongodb-in-action)
+3- Introduction to MongoDB (https://www.pluralsight.com/courses/mongodb-introduction)
 
-4- Mongo Reference Cards (https://drive.google.com/open?id=0B_xFYS7hO4giQjJudlhJOGI2VVk)
+4- MongoDB In Action (https://www.manning.com/books/mongodb-in-action)
 
-5- Mongo Architecture Guide (https://drive.google.com/open?id=0B_xFYS7hO4giN3h1TkxhNl85U2c)
+5- Mongo Reference Cards (https://drive.google.com/open?id=0B_xFYS7hO4giQjJudlhJOGI2VVk)
 
-6- Using MongoDB with ASP.NET MVC (https://www.pluralsight.com/courses/using-mongodb-aspdotnet-mvc)
+6- Mongo Architecture Guide (https://drive.google.com/open?id=0B_xFYS7hO4giN3h1TkxhNl85U2c)
 
-7- Using the MongoDB C# v2 Driver (https://www.pluralsight.com/courses/mongo-db-csharp-v2-driver)
+7- Using MongoDB with ASP.NET MVC (https://www.pluralsight.com/courses/using-mongodb-aspdotnet-mvc)
+
+8- Using the MongoDB C# v2 Driver (https://www.pluralsight.com/courses/mongo-db-csharp-v2-driver)
