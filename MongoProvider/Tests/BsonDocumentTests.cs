@@ -45,5 +45,45 @@ namespace Tests
             //Assert.AreEqual(person.Elements["name"])
         }
 
+        [TestMethod]
+        public void AddArrayToDocument()
+        {
+            var person = new BsonDocument();
+
+            person.Add("friends",
+                        new BsonArray(new[]
+                            { "john", "ron", "steve" }));
+
+            Console.WriteLine(person);
+        }
+
+        [TestMethod]
+        public void EmbedDocument()
+        {
+            //var person = new BsonDocument();
+            //person.Add("address",
+            //    new BsonDocument {
+            //        { "city", "london" },
+            //        { "street", "downing st." },
+            //        { "building", 55 }
+            //    });
+
+            var person = new BsonDocument
+            {
+                { "id", 1 },
+                { "address", new BsonDocument
+                    {
+                        { "city", "london" },
+                        { "street", "downing st." },
+                        { "building", 55 }
+                    }
+                }
+
+            };
+
+            Console.WriteLine(person);
+
+        }
+
     }
 }
