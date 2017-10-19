@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.Unity;
+﻿using Client.Properties;
+using Microsoft.Practices.Unity;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Providers;
@@ -28,7 +29,7 @@ namespace Client
         {
             Console.WriteLine("Hello MongoDB !");
 
-            string connStr = "mongodb://localhost:27017",
+            string connStr = Settings.Default.MongoConnStr,
                    dbName = "test";
 
             //var mongo = new MongoClient();
