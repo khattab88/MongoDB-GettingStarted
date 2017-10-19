@@ -28,11 +28,18 @@ namespace Tests
         [TestMethod]
         public void AddElementToDocument()
         {
-            var person = new BsonDocument();
+            //var person = new BsonDocument();
+            //person.Add("name", new BsonString("ali"));
+            //person.Add("age", new BsonInt32(30));
+            //person.Add("isAdult", new BsonBoolean(true));
 
-            person.Add("name", new BsonString("ali"));
-            person.Add("age", new BsonInt32(30));
-            person.Add("adult", new BsonBoolean(true));
+            // using object initializer syntax
+            var person = new BsonDocument
+            {
+                { "name", "ali" },
+                { "age", 30 },
+                { "isAdult", true }
+            };
 
             Console.WriteLine(person);
             //Assert.AreEqual(person.Elements["name"])
