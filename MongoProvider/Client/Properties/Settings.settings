@@ -9,5 +9,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">mongodb://localhost:27017</Value>
     </Setting>
+    <Setting Name="MongoDbName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">test</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

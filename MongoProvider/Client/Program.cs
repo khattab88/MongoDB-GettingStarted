@@ -30,29 +30,28 @@ namespace Client
             Console.WriteLine("Hello MongoDB !");
 
             string connStr = Settings.Default.MongoConnStr,
-                   dbName = "test";
+                   dbName = Settings.Default.MongoDbName;
 
-            //var mongo = new MongoClient();
+           
             _mongo = container.Resolve<IMongoClient>();
-
-             _provider = new MongoDbProvider(connStr, _mongo);
-            //_provider = container.Resolve<IMongoDbProvider>();
+            _provider = new MongoDbProvider(connStr, _mongo);
+            
 
 
             // get client
             var client = _provider.CreateClient(connStr);
-            Console.WriteLine(client);
 
             // get database
             var db = _provider.GetDatabase("test");
-            Console.WriteLine(db);
+
+            _provider.Init(dbName);
 
             // get collection
-            var collection = _provider.GetCollection(dbName, "products");
-        
+            var products = _provider.GetCollection("products");
+            Console.WriteLine(products.Count(new BsonDocument()));
 
 
-            var doc = collection.Find(new BsonDocument()).FirstOrDefault();
+            var doc = products.Find(new BsonDocument()).FirstOrDefault();
 
             //var document = new BsonDocument();
             //document.Add(new BsonElement("name", "ahmed"));

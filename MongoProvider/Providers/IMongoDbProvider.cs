@@ -10,9 +10,12 @@ namespace Providers
 {
     public interface IMongoDbProvider
     {
+        void Init(string dbName);
         IMongoClient CreateClient(string connStr);
         IMongoDatabase GetDatabase(string dbName);
 
-        IMongoCollection<BsonDocument> GetCollection(string dbName , string collName);
+        IMongoCollection<BsonDocument> GetCollection(string collName);
+
+        IDictionary<string, string> GetServerInfo();
     }
 }

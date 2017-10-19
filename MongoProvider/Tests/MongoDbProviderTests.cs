@@ -40,7 +40,8 @@ namespace Tests
             //mockMongo.Setup(r => r.Settings.Server)
             //         .Returns(new MongoServerAddress(_host, _port));
             //_mockMongo = mockMongo.Object;
- 
+
+            _provider = new MongoDbProvider(_connStr, _mockMongo);
         }
 
         [Ignore]
@@ -94,12 +95,14 @@ namespace Tests
         public void GetCollection_ReturnsValidCollection()
         {
             // arrange
-            _provider = new MongoDbProvider(_connStr, _mockMongo);
             string dbName = "db name",
                    collectionName = "collection name";
+            _provider = new MongoDbProvider(_connStr, _mockMongo);
+            _provider.Init(dbName);
+
 
             // act
-            var collection = _provider.GetCollection(dbName, collectionName);
+            var collection = _provider.GetCollection(collectionName);
 
             // assert
             Assert.IsNotNull(collection);
@@ -134,6 +137,22 @@ namespace Tests
         public void DeleteDocument_ReturnsValidCollectionCount()
         {
             throw new NotImplementedException();
+        }
+
+        [TestMethod]
+        public void Init_InitializeWorkingDatabase()
+        {
+            throw new NotImplementedException();
+        }
+
+        [TestMethod]
+        public void GetServerInfo_ReturnsValidInfo()
+        {
+            // act
+            var info = _provider.GetServerInfo();
+
+            // assert
+            Assert.IsNotNull(info);
         }
 
     }

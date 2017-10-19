@@ -32,5 +32,17 @@ namespace Client.Properties {
                 return ((string)(this["MongoConnStr"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        public string MongoDbName {
+            get {
+                return ((string)(this["MongoDbName"]));
+            }
+            set {
+                this["MongoDbName"] = value;
+            }
+        }
     }
 }
