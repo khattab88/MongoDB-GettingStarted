@@ -91,6 +91,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BsonDocumentTests.cs" />
     <Compile Include="Mocks\MockMongoClient.cs" />
     <Compile Include="Mocks\MockMongoCollection.cs" />
     <Compile Include="Mocks\MockMongoDatabase.cs" />

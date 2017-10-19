@@ -18,5 +18,7 @@ namespace Providers
         IMongoCollection<BsonDocument> GetCollection(string collName);
 
         ServerInfo GetServerInfo();
+
+
     }
 }

@@ -5,6 +5,7 @@ using MongoDB.Driver;
 using Tests.Mocks;
 using Moq;
 using Microsoft.Practices.Unity;
+using MongoDB.Bson;
 
 namespace Tests
 {
@@ -46,7 +47,7 @@ namespace Tests
 
         [Ignore]
         [TestMethod]
-        public void createClient_ReturnsValidMongoClient()
+        public void CreateClient_ReturnsValidMongoClient()
         {
             // arrange
             _provider = new MongoDbProvider(_connStr, _mockMongo);
@@ -168,5 +169,6 @@ namespace Tests
             Assert.AreEqual(useSSL, info.UseSSL);
         }
 
+        
     }
 }
