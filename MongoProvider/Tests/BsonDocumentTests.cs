@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MongoDB.Bson;
 using MongoDB.Bson.IO;
+using MongoDB.Bson.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -85,5 +86,35 @@ namespace Tests
 
         }
 
+        [TestMethod]
+        public void ConvertBsonValues()
+        {
+            var person = new BsonDocument
+            {
+                { "age", 30 }
+            };
+
+            Console.WriteLine(person["age"]);
+
+            Assert.AreEqual(30, person["age"]);
+            Assert.IsTrue(person["age"].IsInt32);
+            Assert.IsFalse(person["age"].IsInt64);
+        }
+
+        [TestMethod]
+        public void ToBson()
+        {
+            var person = new BsonDocument
+            {
+                { "name", "craig" }
+            };
+
+            var bson = BitConverter.ToString(person.ToBson());
+            Console.WriteLine(bson);
+
+            //var deserializedPerson = BsonSerializer.Deserialize<BsonDocument>(bson);
+            //Console.WriteLine(deserializedPerson);
+        }
+        
     }
 }
