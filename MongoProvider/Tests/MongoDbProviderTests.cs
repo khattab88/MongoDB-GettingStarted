@@ -3,53 +3,87 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Providers;
 using MongoDB.Driver;
 using Tests.Mocks;
+using Moq;
+using Microsoft.Practices.Unity;
 
 namespace Tests
 {
     [TestClass]
     public class MongoDbProviderTests
     {
+        IUnityContainer container;
+
         // SUT
-        IDbProvider provider;
+        IMongoDbProvider _provider;
 
         // dependencies
-        IMongoClient mockMongo;
-        string host;
-        int port;
-        string connStr;
+        IMongoClient _mockMongo;
+
+        string _host;
+        int _port;
+        string _connStr;
 
         [TestInitialize]
         public void TestInit()
         {
-            host = "host";
-            port = 11111;
-            connStr = string.Format("mongodb://{0}:{1}", host, port);
+            container = new UnityContainer();
+            container.RegisterType<IMongoClient, MockMongoClient>();
 
-            mockMongo = new MockMongoClient();
+            _host = "host";
+            _port = 11111;
+            _connStr = string.Format("mongodb://{0}:{1}", _host, _port);
 
-            provider = new MongoDbProvider(connStr, mockMongo);   
+            //_mockMongo = new MockMongoClient();
+            _mockMongo = container.Resolve<IMongoClient>();
+
+            //var mockMongo = new Mock<IMongoClient>();
+            //mockMongo.Setup(r => r.Settings.Server)
+            //         .Returns(new MongoServerAddress(_host, _port));
+            //_mockMongo = mockMongo.Object;
+ 
         }
 
         [Ignore]
         [TestMethod]
         public void createClient_ReturnsValidMongoClient()
         {
+            // arrange
+            _provider = new MongoDbProvider(_connStr, _mockMongo);
+
             // act
-            var client = provider.CreateClient(connStr);
+            var client = _provider.CreateClient(_connStr);
 
             // assert
-            Assert.AreEqual(client.Settings.Server.Host, host);
-            Assert.AreEqual(client.Settings.Server.Port, port);
+            Assert.AreEqual(client.Settings.Server.Host, _host);
+            Assert.AreEqual(client.Settings.Server.Port, _port);
+        }
+
+        [Ignore]
+        [TestMethod]
+        //[ExpectedException(typeof(ArgumentException))]
+        public void CraeteClient_InvalidConnStr_ThrowsInvalidArgumentException()
+        {
+            // arrange 
+            var invalidConnStr = "invalid conn str";
+            _provider = new MongoDbProvider(invalidConnStr, _mockMongo);
+
+            // act
+           var client = _provider.CreateClient(invalidConnStr);
+
+            // assert
+            Assert.IsNull(client);
+
         }
 
         [TestMethod]
         public void GetDatabase_ReturnsDatabase()
         {
             // arrange
+            _provider = new MongoDbProvider(_connStr, _mockMongo);
             var dbName = "db name";
 
             // act 
-            var db = provider.GetDatabase(dbName);
+            var db = _provider.GetDatabase(dbName);
 
             // assert
             Assert.IsNotNull(db);
@@ -59,7 +93,17 @@ namespace Tests
         [TestMethod]
         public void GetCollection_ReturnsValidCollection()
         {
-            throw new NotImplementedException();
+            // arrange
+            _provider = new MongoDbProvider(_connStr, _mockMongo);
+            string dbName = "db name",
+                   collectionName = "collection name";
+
+            // act
+            var collection = _provider.GetCollection(dbName, collectionName);
+
+            // assert
+            Assert.IsNotNull(collection);
+            Assert.AreEqual(collectionName, collection.CollectionNamespace.CollectionName);
         }
 
         [TestMethod]

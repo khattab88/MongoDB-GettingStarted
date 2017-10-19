@@ -67,7 +67,7 @@ namespace Tests.Mocks
 
         public IMongoCollection<TDocument> GetCollection<TDocument>(string name, MongoCollectionSettings settings = null)
         {
-            throw new NotImplementedException();
+            return new MockMongoCollection<TDocument>();
         }
 
         public IAsyncCursor<BsonDocument> ListCollections(ListCollectionsOptions options = null, CancellationToken cancellationToken = default(CancellationToken))

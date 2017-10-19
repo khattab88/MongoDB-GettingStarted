@@ -10,32 +10,48 @@ using System.Threading.Tasks;
 
 namespace Client
 {
-    class Program
+    public class Program
     {
-       
+        private static IUnityContainer container;
+
+        private static IMongoClient _mongo;
+        private static IMongoDbProvider _provider;
+
+        static Program()
+        {
+            container = new UnityContainer();
+            container.RegisterType<IMongoClient, MongoClient>(new InjectionConstructor());
+            //container.RegisterType<IMongoDbProvider, MongoDbProvider>(new InjectionConstructor());
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello MongoDB !");
 
-            var connStr = "mongodb://localhost:27017";
-            var mongo = new MongoClient();
-            //var mongo = container.Resolve<IMongoClient>("Mongo");
-            IDbProvider provider = new MongoDbProvider(connStr, mongo);
+            string connStr = "mongodb://localhost:27017",
+                   dbName = "test";
+
+            //var mongo = new MongoClient();
+            _mongo = container.Resolve<IMongoClient>();
+
+             _provider = new MongoDbProvider(connStr, _mongo);
+            //_provider = container.Resolve<IMongoDbProvider>();
+
 
             // get client
-            var client = provider.CreateClient(connStr);
+            var client = _provider.CreateClient(connStr);
             Console.WriteLine(client);
 
             // get database
-            var db = provider.GetDatabase("users");
+            var db = _provider.GetDatabase("test");
             Console.WriteLine(db);
 
+            // get collection
+            var collection = _provider.GetCollection(dbName, "products");
+        
 
 
-
-            //var client = new MongoClient("mongodb://localhost:27017");
-            //var db = client.GetDatabase("test");
-            //var collection = db.GetCollection<BsonDocument>("users");
+            var doc = collection.Find(new BsonDocument()).FirstOrDefault();
 
             //var document = new BsonDocument();
             //document.Add(new BsonElement("name", "ahmed"));

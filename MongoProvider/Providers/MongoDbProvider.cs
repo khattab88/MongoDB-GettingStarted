@@ -1,13 +1,16 @@
 ﻿using System;
+using MongoDB.Bson;
 using MongoDB.Driver;
+//using Microsoft.Practices.Unity;
 
 namespace Providers
 {
-    public class MongoDbProvider : IDbProvider
+    public class MongoDbProvider : IMongoDbProvider
     {
         private readonly string _connStr;
         private readonly IMongoClient _dbClient;
 
+        //[InjectionConstructor]
         public MongoDbProvider(string connStr ,IMongoClient Client)
         {
             this._connStr = connStr;
@@ -18,12 +21,44 @@ namespace Providers
 
         public IMongoClient CreateClient(string connStr)
         {
-            return _dbClient;
+            try
+            {
+                return _dbClient;
+            }
+            catch(Exception)
+            {
+                return null;
+            }
         }
+
 
         public IMongoDatabase GetDatabase(string dbName)
         {
-            return _dbClient.GetDatabase(dbName, null);
+            try
+            {
+                return _dbClient.GetDatabase(dbName, null);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
+
+        public IMongoCollection<BsonDocument> GetCollection(string dbName, string collName)
+        {
+            try
+            {
+                var db = GetDatabase(dbName);
+
+                var collection = db.GetCollection<BsonDocument>(collName);
+
+                return collection;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
     }
 }

@@ -15,7 +15,7 @@ namespace Client
         {
             IUnityContainer container = new UnityContainer();
             container.RegisterType<IMongoClient, MongoClient>();
-            container.RegisterType<IDbProvider, MongoDbProvider>();
+            container.RegisterType<IMongoDbProvider, MongoDbProvider>();
         }
     }
 }
