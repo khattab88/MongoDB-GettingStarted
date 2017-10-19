@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
+using Providers.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,6 @@ namespace Providers
 
         IMongoCollection<BsonDocument> GetCollection(string collName);
 
-        IDictionary<string, string> GetServerInfo();
+        ServerInfo GetServerInfo();
     }
 }

@@ -27,7 +27,12 @@ namespace Tests.Mocks
             {
                 return new MongoClientSettings()
                 {
-                    Server = new MongoServerAddress("host", 11111)
+                    Server = new MongoServerAddress("host", 11111),
+                    ApplicationName = "app name",
+                    ConnectionMode = ConnectionMode.Automatic,
+                    ConnectTimeout = new TimeSpan(0,0,0,0, 3000),
+                    UseSsl = false
+
                 };
             }
         }

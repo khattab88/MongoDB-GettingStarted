@@ -148,11 +148,24 @@ namespace Tests
         [TestMethod]
         public void GetServerInfo_ReturnsValidInfo()
         {
+            // arrange
+            string appName = "app name",
+                   server = $"{_host}:{_port}";
+
+            var connectionMode = ConnectionMode.Automatic;
+            int connectionTimeout = 3000;   
+            bool useSSL = false;
+
             // act
             var info = _provider.GetServerInfo();
 
             // assert
             Assert.IsNotNull(info);
+            Assert.AreEqual(appName, info.AppName);
+            Assert.AreEqual(connectionMode, info.ConnectionMode);
+            Assert.AreEqual(connectionTimeout, info.ConnectionTimeout);
+            Assert.AreEqual(server, info.Server);
+            Assert.AreEqual(useSSL, info.UseSSL);
         }
 
     }

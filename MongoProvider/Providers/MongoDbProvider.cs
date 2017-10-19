@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Providers.Model;
 //using Microsoft.Practices.Unity;
 
 namespace Providers
@@ -67,11 +68,17 @@ namespace Providers
             }
         }
 
-        public IDictionary<string, string> GetServerInfo()
+        public ServerInfo GetServerInfo()
         {
-            var info = new Dictionary<string, string>();
-
-
+            var info = new ServerInfo
+            {
+                AppName = _dbClient.Settings.ApplicationName,
+                Server = $"{_dbClient.Settings.Server.Host}:{_dbClient.Settings.Server.Port}",
+                ConnectionMode = _dbClient.Settings.ConnectionMode,
+                ConnectionTimeout = (int)_dbClient.Settings.ConnectTimeout.TotalMilliseconds,
+                UseSSL = _dbClient.Settings.UseSsl
+            };
+            
             return info;
         }
     }
