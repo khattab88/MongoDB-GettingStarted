@@ -47,21 +47,13 @@ namespace Client
             _provider.Init(dbName);
 
             // get collection
-            var products = _provider.GetCollection("products");
-            Console.WriteLine(products.Count(new BsonDocument()));
+            var collection = _provider.GetCollection("products");
 
 
-            var doc = products.Find(new BsonDocument()).FirstOrDefault();
 
-            //var document = new BsonDocument();
-            //document.Add(new BsonElement("name", "ahmed"));
-            //collection.InsertOne(document);
+            Console.WriteLine(collection.Count(new BsonDocument()));
 
-            //var document = collection.Find(new BsonDocument()).FirstOrDefault();
-            //Console.WriteLine(document);
-
-            //var count = collection.Count(new BsonDocument());
-            //Console.WriteLine(count);
+           
         }
     }
 }
