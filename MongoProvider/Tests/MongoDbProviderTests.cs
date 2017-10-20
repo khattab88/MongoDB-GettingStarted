@@ -12,6 +12,12 @@ namespace Tests
     [TestClass]
     public class MongoDbProviderTests
     {
+        public class Person
+        {
+            public string Name { get; set; }
+            public int Age { get; set; }
+        }
+
         IUnityContainer container;
 
         // SUT
@@ -172,12 +178,12 @@ namespace Tests
         [TestMethod]
         public void AddToCollection_ValidDocument_InsertNewDocument()
         {
-            string collctionName = "collection name";
-            var document = new BsonDocument();
+            var collection = new MockMongoCollection<Person>();
+            var person = new Person();
 
-            _provider.AddToCollection(collctionName, document);
+            _provider.AddToCollection<Person>(collection, person);
 
-            Assert.IsTrue(document["_id"].IsObjectId);
+            Assert.IsTrue(person.ToBsonDocument<Person>()["_id"].IsObjectId);
         }
     }
 }

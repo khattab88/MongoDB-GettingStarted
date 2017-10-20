@@ -19,6 +19,6 @@ namespace Providers
 
         ServerInfo GetServerInfo();
 
-
+        void AddToCollection<T>(IMongoCollection<T> collection, T document);
     }
 }
