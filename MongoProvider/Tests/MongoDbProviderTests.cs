@@ -8,6 +8,7 @@ using Microsoft.Practices.Unity;
 using MongoDB.Bson;
 using MongoDB.Bson.IO;
 using Providers.Exceptions;
+using System.Collections.Generic;
 
 namespace Tests
 {
@@ -31,6 +32,7 @@ namespace Tests
         string _host;
         int _port;
         string _connStr;
+        IMongoCollection<BsonDocument> _collection;
 
         [TestInitialize]
         public void TestInit()
@@ -43,6 +45,7 @@ namespace Tests
             _host = "host";
             _port = 11111;
             _connStr = string.Format("mongodb://{0}:{1}", _host, _port);
+            _collection = new MockMongoCollection<BsonDocument>();
 
             //_mockMongo = new MockMongoClient();
             _mockMongo = container.Resolve<IMongoClient>();
@@ -255,6 +258,37 @@ namespace Tests
             // act
             _provider.EditDocument(id, document, collection);
 
+        }
+
+        [TestMethod]
+        public void EditDocument_PartialUpdate_UpdateDocumentWithoutReplace()
+        {
+            // arrange
+            var id = "123";
+            var updates = new Dictionary<string, object>
+            {
+                { "name", "new name" },
+                { "age", 30 }
+            };
+            var oldDocument = _provider.GetDocumentById(id, _collection);
+
+            // act
+            _provider.EditDocument(id, updates, _collection);
+            var updatedDocument = _provider.GetDocumentById(id, _collection);
+
+            Assert.AreEqual(oldDocument["_id"].AsObjectId, updatedDocument["_id"].AsObjectId);
+            Assert.AreNotEqual(oldDocument["name"].AsString, updatedDocument["name"].AsString);
+            Assert.AreNotEqual(oldDocument["age"].AsInt32, updatedDocument["age"].AsInt32);
+        }
+
+        [TestMethod]
+        public void RemoveDocument_ValidDocumentId_DeleteDocumentFromCollection()
+        {
+            var id = "123";
+
+            _provider.RemoveDocument(id, _collection);
+ 
+            Assert.Fail();   // assertion needed
         }
 
     }

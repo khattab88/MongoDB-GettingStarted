@@ -75,6 +75,23 @@ namespace Client
             //Console.WriteLine(doc["_id"]);
 
 
+            // upadte document (category with ObjectId("59ea0f2fd1cd314b568a47a7"))
+            var upadated = new Category
+            {
+                CategoryId = 3,
+                CategoryName = "Games"
+            }.ToBsonDocument();
+
+            //_provider.EditDocument("59ea0f2fd1cd314b568a47a7", upadated, categories);
+
+
+            // partial update
+            //var updates = Builders<Category>.Update.Set(d => d.CategoryName, 5000);
+            //_provider.EditDocument("59ea0f2fd1cd314b568a47a7", updates, categories);
+
+
+            // delete document
+            _provider.RemoveDocument("59ea5355c09c243ab0ac5680", categories);
         }
     }
 }

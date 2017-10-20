@@ -25,6 +25,24 @@ namespace Providers
 
         T GetDocumentById<T>(string id, IMongoCollection<T> collection);
 
+        /// <summary>
+        /// Updates document (replace)
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="id"></param>
+        /// <param name="document"></param>
+        /// <param name="collection"></param>
+        
         void EditDocument<T>(string id, T document, IMongoCollection<T> collection);
+        /// <summary>
+        /// Updates document (partial update, no replacement)
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="id"></param>
+        /// <param name="updates"></param>
+        /// <param name="collection"></param>
+        void EditDocument<T>(string id, IDictionary<string,object> updates, IMongoCollection<T> collection);
+
+        void RemoveDocument<T>(string id, IMongoCollection<T> collection);
     }
 }

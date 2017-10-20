@@ -111,7 +111,32 @@ namespace Providers
 
         public void EditDocument<T>(string id, T document, IMongoCollection<T> collection)
         {
-            
+            var objectId = new ObjectId(id);
+            var idFilter = Builders<T>.Filter.Eq("_id", objectId);
+
+            // if there is no existing document, throws not found excception
+            var oldDocument = GetDocumentById(id, collection);
+
+            collection.ReplaceOne(idFilter, document);
+        }
+
+        public void EditDocument<T>(string id, IDictionary<string, object> updates, IMongoCollection<T> collection)
+        {
+            var objectId = new ObjectId(id);
+            var idFilter = Builders<T>.Filter.Eq("_id", objectId);
+
+            // if there is no existing document, throws not found excception
+            var oldDocument = GetDocumentById(id, collection);
+
+            //var partialUpdate = Builders<T>.Update.Set(d => d.)
+        }
+
+        public void RemoveDocument<T>(string id, IMongoCollection<T> collection)
+        {
+            var objectId = new ObjectId(id);
+            var idFilter = Builders<T>.Filter.Eq("_id", objectId);
+
+            collection.DeleteOne(idFilter);
         }
     }
 }
