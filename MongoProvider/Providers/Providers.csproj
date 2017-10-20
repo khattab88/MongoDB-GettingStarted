@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\DocumentNotFoundException.cs" />
     <Compile Include="IMongoDbProvider.cs" />
     <Compile Include="Model\ServerInfo.cs" />
     <Compile Include="MongoDbProvider.cs" />

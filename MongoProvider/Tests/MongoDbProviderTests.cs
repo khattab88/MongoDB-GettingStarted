@@ -7,6 +7,7 @@ using Moq;
 using Microsoft.Practices.Unity;
 using MongoDB.Bson;
 using MongoDB.Bson.IO;
+using Providers.Exceptions;
 
 namespace Tests
 {
@@ -208,5 +209,53 @@ namespace Tests
             Assert.IsNotNull(doc);
             Assert.AreEqual(id, doc["_id"].AsString);
         }
+
+        [TestMethod]
+        public void GetDocument_InvalidDocumentId_ThrowsDocumentNotFoundException()
+        {
+            var id = "000";
+            var collection = new MockMongoCollection<BsonDocument>();
+
+            _provider.GetDocumentById(id, collection);
+        }
+
+        [TestMethod]
+        public void EditDocument_UpdatingExsistingDocument()
+        {
+            // arrange
+            var id = "123";
+            var document = new Person
+            {
+                Name = "updated name",
+                Age = 50
+            }.ToBsonDocument();
+            var collection = new MockMongoCollection<BsonDocument>();
+            var oldDocument = _provider.GetDocumentById(id, collection);
+
+            // act
+            _provider.EditDocument(id, document, collection);
+
+            Assert.AreEqual(oldDocument["_id"].AsString, document["_id"].AsString);
+            Assert.AreNotEqual(oldDocument["name"].AsString, document["name"].AsString);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(DocumentNotFoundException))]
+        public void EditDocument_InvalidDocumentId_ThrowsDocumentNotFoundException()
+        {
+            // arrange
+            var id = "000";
+            var document = new Person
+            {
+                Name = "updated name",
+                Age = 50
+            }.ToBsonDocument();
+            var collection = new MockMongoCollection<BsonDocument>();
+
+            // act
+            _provider.EditDocument(id, document, collection);
+
+        }
+
     }
 }

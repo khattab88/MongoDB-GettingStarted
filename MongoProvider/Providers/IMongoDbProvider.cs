@@ -24,5 +24,7 @@ namespace Providers
         IEnumerable<T> GetDocuments<T>(IMongoCollection<T> collection);
 
         T GetDocumentById<T>(string id, IMongoCollection<T> collection);
+
+        void EditDocument<T>(string id, T document, IMongoCollection<T> collection);
     }
 }

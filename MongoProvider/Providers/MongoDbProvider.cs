@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Providers.Model;
+using Providers.Exceptions;
 //using Microsoft.Practices.Unity;
 
 namespace Providers
@@ -100,9 +101,17 @@ namespace Providers
         {
             var objectId = new ObjectId(id);
             var idFilter = Builders<T>.Filter.Eq("_id", objectId);
+
             var doc = collection.Find(idFilter).SingleOrDefault();
+            if (doc == null)
+                throw new DocumentNotFoundException(id, collection.CollectionNamespace.CollectionName);
 
             return doc;
+        }
+
+        public void EditDocument<T>(string id, T document, IMongoCollection<T> collection)
+        {
+            
         }
     }
 }
