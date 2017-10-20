@@ -54,11 +54,11 @@ namespace Providers
             }
         }
 
-        public IMongoCollection<BsonDocument> GetCollection(string collName)
+        public IMongoCollection<T> GetCollection<T>(string collName)
         {
             try
             {
-                var collection = _db.GetCollection<BsonDocument>(collName);
+                var collection = _db.GetCollection<T>(collName);
 
                 return collection;
             }

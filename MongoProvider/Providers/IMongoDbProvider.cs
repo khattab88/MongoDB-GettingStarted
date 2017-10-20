@@ -15,7 +15,7 @@ namespace Providers
         IMongoClient CreateClient(string connStr);
         IMongoDatabase GetDatabase(string dbName);
 
-        IMongoCollection<BsonDocument> GetCollection(string collName);
+        IMongoCollection<T> GetCollection<T>(string collName);
 
         ServerInfo GetServerInfo();
 

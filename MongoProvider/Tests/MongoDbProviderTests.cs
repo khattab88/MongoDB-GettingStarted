@@ -112,7 +112,7 @@ namespace Tests
 
 
             // act
-            var collection = _provider.GetCollection(collectionName);
+            var collection = _provider.GetCollection<BsonDocument>(collectionName);
 
             // assert
             Assert.IsNotNull(collection);
@@ -121,12 +121,6 @@ namespace Tests
 
         [TestMethod]
         public void GetCollectionCount_ReturnsValidCollectionCount()
-        {
-            throw new NotImplementedException();
-        }
-
-        [TestMethod]
-        public void InsertDocument_ReturnsNewlyCreatedDocument()
         {
             throw new NotImplementedException();
         }
@@ -192,5 +186,7 @@ namespace Tests
 
             Console.WriteLine(person.ToJson());
         }
+
+        
     }
 }

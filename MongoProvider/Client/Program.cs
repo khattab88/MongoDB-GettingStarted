@@ -1,4 +1,5 @@
-﻿using Client.Properties;
+﻿using Client.Model;
+using Client.Properties;
 using Microsoft.Practices.Unity;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -47,11 +48,19 @@ namespace Client
             _provider.Init(dbName);
 
             // get collection
-            var collection = _provider.GetCollection("products");
+            var products = _provider.GetCollection<BsonDocument>("products");
+            var categories = _provider.GetCollection<Category>("categories");
 
+            // add document
+            var category = new Category
+            {
+                CategoryId = 3,
+                CategoryName = "Accessories"
+            };
+            //_provider.AddToCollection<Category>(categories, category);
 
+            // get all documents
 
-            Console.WriteLine(collection.Count(new BsonDocument()));
 
            
         }
