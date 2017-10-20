@@ -22,5 +22,7 @@ namespace Providers
         void AddToCollection<T>(IMongoCollection<T> collection, T document);
 
         IEnumerable<T> GetDocuments<T>(IMongoCollection<T> collection);
+
+        T GetDocumentById<T>(string id, IMongoCollection<T> collection);
     }
 }

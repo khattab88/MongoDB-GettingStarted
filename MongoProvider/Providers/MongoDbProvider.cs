@@ -95,5 +95,14 @@ namespace Providers
 
             return documents;
         }
+
+        public T GetDocumentById<T>(string id, IMongoCollection<T> collection)
+        {
+            var objectId = new ObjectId(id);
+            var idFilter = Builders<T>.Filter.Eq("_id", objectId);
+            var doc = collection.Find(idFilter).SingleOrDefault();
+
+            return doc;
+        }
     }
 }

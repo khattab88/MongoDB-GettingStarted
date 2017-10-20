@@ -196,5 +196,17 @@ namespace Tests
 
             Assert.IsNotNull(documents);
         }
+
+        [TestMethod]
+        public void GetDocument_GivenDocumentId_ReturnsValidDocument()
+        {
+            var id = "123";
+            var collection = new MockMongoCollection<BsonDocument>();
+
+            var doc = _provider.GetDocumentById(id, collection);
+
+            Assert.IsNotNull(doc);
+            Assert.AreEqual(id, doc["_id"].AsString);
+        }
     }
 }

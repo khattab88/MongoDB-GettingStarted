@@ -42,14 +42,18 @@ namespace Client
             // get client
             var client = _provider.CreateClient(connStr);
 
+
             // get database
             var db = _provider.GetDatabase("test");
 
+            // set working database
             _provider.Init(dbName);
+
 
             // get collection
             var products = _provider.GetCollection<BsonDocument>("products");
             var categories = _provider.GetCollection<BsonDocument>("categories");
+
 
             // add document
             var category = new Category
@@ -61,10 +65,16 @@ namespace Client
 
             // get all documents
             var  docs = _provider.GetDocuments<BsonDocument>(categories);
-            foreach (var item in docs)
-            {
-                Console.WriteLine(item.ToJson());
-            }
+            //foreach (var item in docs)
+            //{
+            //    Console.WriteLine(item.ToJson());
+            //}
+
+            // get document by id (ObjectId("59e49ada5c9c8fc0039c4c0e"))
+            var doc = _provider.GetDocumentById("59e49ada5c9c8fc0039c4c0e", products);
+            //Console.WriteLine(doc["_id"]);
+
+
         }
     }
 }
