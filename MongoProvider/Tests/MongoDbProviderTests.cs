@@ -6,6 +6,7 @@ using Tests.Mocks;
 using Moq;
 using Microsoft.Practices.Unity;
 using MongoDB.Bson;
+using MongoDB.Bson.IO;
 
 namespace Tests
 {
@@ -33,6 +34,8 @@ namespace Tests
         [TestInitialize]
         public void TestInit()
         {
+            JsonWriterSettings.Defaults.Indent = true;
+
             container = new UnityContainer();
             container.RegisterType<IMongoClient, MockMongoClient>();
 
@@ -179,11 +182,15 @@ namespace Tests
         public void AddToCollection_ValidDocument_InsertNewDocument()
         {
             var collection = new MockMongoCollection<Person>();
-            var person = new Person();
+            var person = new Person
+            {
+                Name = "john",
+                Age = 20
+            };
 
             _provider.AddToCollection<Person>(collection, person);
 
-            Assert.IsTrue(person.ToBsonDocument<Person>()["_id"].IsObjectId);
+            Console.WriteLine(person.ToJson());
         }
     }
 }

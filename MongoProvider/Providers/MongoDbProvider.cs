@@ -84,7 +84,7 @@ namespace Providers
 
         public void AddToCollection<T>(IMongoCollection<T> collection, T document)
         {
-            throw new NotImplementedException();
+            collection.InsertOne(document);
         }
     }
 }

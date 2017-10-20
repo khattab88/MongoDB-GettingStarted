@@ -184,7 +184,7 @@ namespace Tests.Mocks
 
         public void InsertOne(T document, InsertOneOptions options = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            throw new NotImplementedException();
+            //
         }
 
         public Task InsertOneAsync(T document, CancellationToken _cancellationToken)
