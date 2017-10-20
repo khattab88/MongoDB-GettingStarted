@@ -86,5 +86,14 @@ namespace Providers
         {
             collection.InsertOne(document);
         }
+
+        public IEnumerable<T> GetDocuments<T>(IMongoCollection<T> collection)
+        {
+            var documents = collection
+                            .Find(FilterDefinition<T>.Empty)
+                            .ToList<T>();
+
+            return documents;
+        }
     }
 }

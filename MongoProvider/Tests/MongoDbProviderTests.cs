@@ -187,6 +187,14 @@ namespace Tests
             Console.WriteLine(person.ToJson());
         }
 
-        
+        [TestMethod]
+        public void GetDocuments_GetAllDocuments_RetunsDocumentsInCollection()
+        {
+            var collection = new MockMongoCollection<Person>();
+
+            var documents = _provider.GetDocuments(collection);
+
+            Assert.IsNotNull(documents);
+        }
     }
 }

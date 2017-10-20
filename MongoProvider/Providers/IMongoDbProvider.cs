@@ -20,5 +20,7 @@ namespace Providers
         ServerInfo GetServerInfo();
 
         void AddToCollection<T>(IMongoCollection<T> collection, T document);
+
+        IEnumerable<T> GetDocuments<T>(IMongoCollection<T> collection);
     }
 }
