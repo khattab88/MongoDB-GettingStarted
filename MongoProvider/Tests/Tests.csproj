@@ -96,6 +96,7 @@
     <Compile Include="Mocks\MockMongoCollection.cs" />
     <Compile Include="Mocks\MockMongoDatabase.cs" />
     <Compile Include="MongoDbProviderTests.cs" />
+    <Compile Include="PocoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
