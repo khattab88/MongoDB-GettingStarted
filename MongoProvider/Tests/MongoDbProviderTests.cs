@@ -169,6 +169,15 @@ namespace Tests
             Assert.AreEqual(useSSL, info.UseSSL);
         }
 
-        
+        [TestMethod]
+        public void AddToCollection_ValidDocument_InsertNewDocument()
+        {
+            string collctionName = "collection name";
+            var document = new BsonDocument();
+
+            _provider.AddToCollection(collctionName, document);
+
+            Assert.IsTrue(document["_id"].IsObjectId);
+        }
     }
 }
