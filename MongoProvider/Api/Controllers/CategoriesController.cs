@@ -10,6 +10,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using MongoDB.Driver;
 using System.Threading.Tasks;
+using MongoDB.Driver.Core;
+using MongoDB.Driver.Core.Operations;
 
 namespace Api.Controllers
 {
@@ -23,11 +25,21 @@ namespace Api.Controllers
                                      Settings.Default.Database);
         }
 
-        public async Task<IEnumerable<Category>> Get()
+        public async Task<IHttpActionResult> Get()
         {
             var categories = await context.Categories.FindAsync(new BsonDocument());
 
-            return categories.ToList();
+            return Ok(categories.ToList());
+        }
+
+        public async Task<IHttpActionResult> Get(int id)
+        {
+            var filterById = Builders<Category>.Filter.Eq(c => c.CategoryId, id);
+
+            var categories = await context.Categories
+                                    .FindAsync(filterById);
+
+            return Ok(categories.ToList());
         }
 
     }
