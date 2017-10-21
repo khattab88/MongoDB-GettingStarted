@@ -29,7 +29,9 @@ namespace Client
         static void Main(string[] args)
         {
             Console.WriteLine("Hello MongoDB !");
-   
+
+            #region Provider
+
             string connStr = Settings.Default.MongoConnStr,
                    dbName = Settings.Default.MongoDbName;
 
@@ -93,8 +95,11 @@ namespace Client
             // delete document
             //_provider.RemoveDocument("59ea5355c09c243ab0ac5680", categories);
 
+            #endregion
 
             //-------------------------------------------------------------------------------
+
+            #region Context
 
             var pos = new PosContext(Settings.Default.MongoConnStr,
                                      Settings.Default.MongoDbName);
@@ -102,7 +107,8 @@ namespace Client
             var count = pos.Categories.Count(FilterDefinition<Category>.Empty);
             Console.WriteLine(count);
 
-            
+            #endregion
+
         }
     }
 }
