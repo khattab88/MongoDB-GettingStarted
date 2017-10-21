@@ -11,7 +11,7 @@ namespace Model
     public class Category
     {
         //[BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
-        public ObjectId id { get; }
+        public ObjectId _id { get; }
 
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }

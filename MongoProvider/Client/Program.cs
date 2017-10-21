@@ -1,4 +1,4 @@
-﻿using Client.Model;
+﻿using Model;
 using Client.Properties;
 using Microsoft.Practices.Unity;
 using MongoDB.Bson;
@@ -107,7 +107,7 @@ namespace Client
                                      Settings.Default.MongoDbName);
 
             var categories = pos.Categories.Find(new BsonDocument()).ToList();
-            Console.WriteLine(categories.Count);
+            categories.ForEach(c => Console.WriteLine(c.CategoryName));
 
 
             #endregion
