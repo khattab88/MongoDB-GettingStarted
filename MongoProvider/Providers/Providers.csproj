@@ -57,8 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\DocumentNotFoundException.cs" />
+    <Compile Include="IMongoDbContext.cs" />
     <Compile Include="IMongoDbProvider.cs" />
     <Compile Include="Model\ServerInfo.cs" />
+    <Compile Include="MongoDbContext.cs" />
     <Compile Include="MongoDbProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
