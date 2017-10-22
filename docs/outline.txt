@@ -1,0 +1,47 @@
+1- NoSQL
+
+1.1- SQL vs. NoSql
+1.2- Why NoSql
+1.3- Distributed Processing and Sacalbility
+1.4- NoSQL Origins, History, Naming
+
+1.5- NoSQL Characterstics
+1.7- NoSql Data Models
+1.8- NoSql Databases
+1.9- DDD and Aggregates
+
+1.10- Consistency vs. Availability
+1.11- CAP and BASE
+1.12- when to NoSQL
+
+--------------------------------------
+
+2- MongoDB
+
+2.1- MongoDB (10gen)
+2.2- Insatallation and Configuration
+2.3- Components (Architecture)
+    a) Server       b) client
+    c) GUI Tools    d) Other Tools
+    e) Cloud        f) Drivers
+
+2.4- MongoDB Core Concepts
+    a) Database
+    b) Collection
+    c) Document
+
+2.5- Develeopment
+    a) CRUD (Queries / Updates)
+    b) Aggregation
+    c) Indexing
+    d) Schema Design and Patterns
+
+2.6- Replicatoin
+
+2.7- Sharding
+
+2.8- Security
+
+2.9- Drivers
+    a) .NET Driver
+    b) Node.js Driver
