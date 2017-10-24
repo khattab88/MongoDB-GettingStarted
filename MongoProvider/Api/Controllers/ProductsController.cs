@@ -31,15 +31,20 @@ namespace Api.Controllers
         }
 
         [System.Web.Http.Route("api/products/bycategory")]
-        public async Task<IHttpActionResult> GetProductsByCategory()
+        public IHttpActionResult GetProductsByCategory()
         {
-            var groups = await _context.Products.Aggregate()
-                                .Group(p => p.CategoryId, g => new { g.Key, Count = g.Count() })
-                                //.Project()
-                                .ToListAsync();
-               
-            
-            return Ok(groups);
+            //var groups = await _context.Products.Aggregate()
+            //                    .Group(p => p.CategoryId, g => new { g.Key, Count = g.Count() })
+            //                    //.Project()
+            //                    .ToListAsync();
+
+            var groups2 = _context.Products.AsQueryable()
+                                .GroupBy(p => p.CategoryId)
+                                .Select(g => new { Key = g.Key, Coount = g.Count() })
+                                .ToList();
+
+
+            return Ok(groups2);
         }
     }
 }
