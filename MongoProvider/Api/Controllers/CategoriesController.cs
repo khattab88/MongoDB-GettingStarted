@@ -12,22 +12,23 @@ using MongoDB.Driver;
 using System.Threading.Tasks;
 using MongoDB.Driver.Core;
 using MongoDB.Driver.Core.Operations;
+using System.Web.Http.Results;
 
 namespace Api.Controllers
 {
     public class CategoriesController : ApiController
     {
-        private readonly PosContext context;
+        private readonly PosContext _context;
 
         public CategoriesController()
         {
-            context = new PosContext(Settings.Default.ConnectionString,
+            _context = new PosContext(Settings.Default.ConnectionString,
                                      Settings.Default.Database);
         }
 
         public async Task<IHttpActionResult> Get()
         {
-            var categories = await context.Categories.FindAsync(new BsonDocument());
+            var categories = await _context.Categories.FindAsync(new BsonDocument());
 
             return Ok(categories.ToList());
         }
@@ -36,7 +37,7 @@ namespace Api.Controllers
         {
             var idFilter = Builders<Category>.Filter.Eq(c => c.CategoryId, id);
 
-            var category = await context.Categories.FindAsync(idFilter);
+            var category = await _context.Categories.FindAsync(idFilter);
 
             return Ok(category.FirstOrDefault());
         }
@@ -58,11 +59,50 @@ namespace Api.Controllers
         [System.Web.Http.HttpPost]
         public async Task<IHttpActionResult> Post(Category category)
         {
-            await context.Categories.InsertOneAsync(category);
+            await _context.Categories.InsertOneAsync(category);
 
             var location = $"{this.ActionContext.Request.RequestUri.AbsoluteUri}/{category.CategoryId}";
 
             return Created(location, category);
+        }
+
+        [System.Web.Http.HttpPut]
+        public async Task<IHttpActionResult> Update(int id, Category category)
+        {
+            if (category == null || category.CategoryId != id)
+            {
+                return BadRequest();
+            }
+
+            var idFilter = Builders<Category>.Filter.Where(c => c.CategoryId == id);
+
+            var existing = _context.Categories.FindAsync(idFilter);
+            if (existing == null)
+            {
+                return NotFound();
+            }
+
+            var update = Builders<Category>.Update.Set(c => c.CategoryId, category.CategoryId)
+                                                  .Set(c => c.CategoryName, category.CategoryName);
+
+            await _context.Categories.UpdateOneAsync(idFilter, update);
+
+            return Ok();
+        }
+
+        [System.Web.Http.HttpDelete]
+        public async Task<IHttpActionResult> Delete(int id)
+        {
+            var filter = Builders<Category>.Filter.Where(c => c.CategoryId == id);
+            var category = _context.Categories.FindAsync(filter);
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            await _context.Categories.DeleteOneAsync(filter);
+
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
     }
