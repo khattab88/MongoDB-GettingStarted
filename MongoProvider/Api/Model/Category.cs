@@ -10,10 +10,13 @@ namespace Model
 {
     public class Category
     {
-        //[BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
-        public ObjectId _id { get; set; }
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
+        public string _id { get; set; }
 
+        [BsonElement("categoryId")]
         public int CategoryId { get; set; }
+
+        [BsonElement("categoryName")]
         public string CategoryName { get; set; }
     }
 }

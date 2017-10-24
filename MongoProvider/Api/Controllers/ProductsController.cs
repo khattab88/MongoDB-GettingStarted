@@ -24,9 +24,9 @@ namespace Api.Controllers
 
         public async Task<IHttpActionResult> Get()
         {
-            var categories = await _context.Product.FindAsync(new BsonDocument());
+            var products = await _context.Products.FindAsync(new BsonDocument());
 
-            return Ok(categories.ToList());
+            return Ok(products.ToList());
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Model
         {
             get
             {
-                return Database.GetCollection<Product>("product");
+                return Database.GetCollection<Product>("products");
             }
         }
     }
