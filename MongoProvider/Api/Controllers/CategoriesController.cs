@@ -43,7 +43,7 @@ namespace Api.Controllers
         }
 
         [System.Web.Http.Route("api/categories/{name}")]
-        public async Task<IHttpActionResult> Get(string name)
+        public async Task<IHttpActionResult> GetByName(string name)
         {
             //var nameFilter = Builders<Category>.Filter.Where(c => c.CategoryName == name);
             var nameFilter = Builders<Category>.Filter.Eq(c => c.CategoryName, name);
