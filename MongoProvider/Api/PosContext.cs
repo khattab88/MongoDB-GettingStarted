@@ -23,7 +23,7 @@ namespace Model
             }
         }
 
-        public IMongoCollection<Product> Product
+        public IMongoCollection<Product> Products
         {
             get
             {
