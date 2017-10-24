@@ -42,5 +42,18 @@ namespace Api.Controllers
             return Ok(categories.ToList());
         }
 
+        [System.Web.Http.Route("api/categories/{name}")]
+        public async Task<IHttpActionResult> Get(string name)
+        {
+            //var nameFilter = Builders<Category>.Filter.Where(c => c.CategoryName == name);
+            var nameFilter = Builders<Category>.Filter.Eq(c => c.CategoryName, name);
+
+            var categoris = await context.Categories.FindAsync(nameFilter);
+
+            return Ok(categoris);
+        }
+
+
+
     }
 }
