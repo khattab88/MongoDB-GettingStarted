@@ -46,5 +46,28 @@ namespace Api.Controllers
 
             return Ok(groups2);
         }
+
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("api/products/join")]
+        public IHttpActionResult Join()
+        {
+            var join = _context.Categories
+                            .Aggregate()
+                            .Lookup<Category, Product, BsonDocument>
+                                    (_context.Products,
+                                     c => c.CategoryId,
+                                     p => p.CategoryId,
+                                     j => j["products"]);
+
+            //var join = _context.Products
+            //                .Aggregate()
+            //                .Lookup<Product, Category, BsonDocument>
+            //                        (_context.Categories,
+            //                         p => p.CategoryId,
+            //                         c => c.CategoryId,
+            //                         j => j["products"]);
+
+            return Ok(join.ToList()) ;
+        }
     }
 }
