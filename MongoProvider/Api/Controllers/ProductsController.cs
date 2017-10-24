@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using MongoDB.Driver;
+using System.Web.Mvc;
 
 namespace Api.Controllers
 {
@@ -27,6 +28,18 @@ namespace Api.Controllers
             var products = await _context.Products.FindAsync(new BsonDocument());
 
             return Ok(products.ToList());
+        }
+
+        [System.Web.Http.Route("api/products/bycategory")]
+        public async Task<IHttpActionResult> GetProductsByCategory()
+        {
+            var groups = await _context.Products.Aggregate()
+                                .Group(p => p.CategoryId, g => new { g.Key, Count = g.Count() })
+                                //.Project()
+                                .ToListAsync();
+               
+            
+            return Ok(groups);
         }
     }
 }

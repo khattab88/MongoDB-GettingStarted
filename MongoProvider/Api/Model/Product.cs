@@ -39,6 +39,8 @@ namespace Model
 
         [BsonElement("categoryId")]
         public int CategoryId { get; set; }
+
+        [BsonElement("category")]
         public Category Category { get; set; }
 
         [BsonElement("tags")]
