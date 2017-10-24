@@ -34,29 +34,36 @@ namespace Api.Controllers
 
         public async Task<IHttpActionResult> Get(int id)
         {
-            var filterById = Builders<Category>.Filter.Eq(c => c.CategoryId, id);
+            var idFilter = Builders<Category>.Filter.Eq(c => c.CategoryId, id);
 
-            var categories = await context.Categories
-                                    .FindAsync(filterById);
+            var category = await context.Categories.FindAsync(idFilter);
 
-            return Ok(categories.ToList());
+            return Ok(category.FirstOrDefault());
         }
 
-        [System.Web.Http.Route("api/categories/{name}")]
-        public async Task<IHttpActionResult> GetByName(string name)
+        //[System.Web.Http.Route("api/categories/{name}")]
+        //public async Task<IHttpActionResult> GetByName(string name)
+        //{
+        //    //var nameFilter = Builders<Category>.Filter.Where(c => c.CategoryName == name);
+        //    var nameFilter = Builders<Category>.Filter.Eq(c => c.CategoryName, name);
+
+        //    var categoris = await context.Categories
+        //                                    .Find(nameFilter)
+        //                                    //.Sort(Builders<Category>.Sort.Ascending(c => c.CategoryName == name))
+        //                                    .ToListAsync();
+
+        //    return Ok(categoris);
+        //}
+
+        [System.Web.Http.HttpPost]
+        public async Task<IHttpActionResult> Post(Category category)
         {
-            //var nameFilter = Builders<Category>.Filter.Where(c => c.CategoryName == name);
-            var nameFilter = Builders<Category>.Filter.Eq(c => c.CategoryName, name);
+            await context.Categories.InsertOneAsync(category);
 
-            var categoris = await context.Categories
-                                            .Find(nameFilter)
-                                            //.Sort(Builders<Category>.Sort.Ascending(c => c.CategoryName == name))
-                                            .ToListAsync();
+            var location = $"{this.ActionContext.Request.RequestUri.AbsoluteUri}/{category.CategoryId}";
 
-            return Ok(categoris);
+            return Created(location, category);
         }
-
-
 
     }
 }
