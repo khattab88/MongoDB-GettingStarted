@@ -48,7 +48,10 @@ namespace Api.Controllers
             //var nameFilter = Builders<Category>.Filter.Where(c => c.CategoryName == name);
             var nameFilter = Builders<Category>.Filter.Eq(c => c.CategoryName, name);
 
-            var categoris = await context.Categories.FindAsync(nameFilter);
+            var categoris = await context.Categories
+                                            .Find(nameFilter)
+                                            //.Sort(Builders<Category>.Sort.Ascending(c => c.CategoryName == name))
+                                            .ToListAsync();
 
             return Ok(categoris);
         }
